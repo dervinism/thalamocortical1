@@ -5,6 +5,14 @@ Language: Neuron.
 
 The main file is init.hoc
 
+To run the model in the serial manner, type in the terminal:
+```
+nrnivmodl && nrngui init.hoc
+```
+To run the model in a parallel manner (recommended), you have to set up Neuron to run with MPI (read more about this in the [Neuron documentation](https://nrn.readthedocs.io/en/latest/courses/mpi_parallelization.html)). Once set up, type in this line:
+```
+nrnivmodl && mpiexec -np 16 nrniv -mpi init.hoc
+
 What's in different folders:
 - full_model_parameters_not_set. This is the main folder containing the full model. However, the parameters are not set to run any particular simulation described in any of the PhD thesis figures. You have to adjust model parameters yourself based on descriptions in the thesis. In order to run it without the thalamus go to the file ThCxprocs.hoc and set variables isFO and isHO to zero:
 ```
